@@ -76,6 +76,11 @@ This command will stop all running Docker Compose services.
 - **MediaWiki**: Access the application at [http://127.0.0.1:1234](http://127.0.0.1:1234)
 - **Flarum**: Access the application at [http://127.0.0.1:5678](http://127.0.0.1:5678)
 
+## Database Configuration for application installation
+- **host**: *database*
+- **user**: *adminuser*
+- **password**: *123456*
+
 ## Important Notes
 
 - Ensure that the `LocalSettings.php` file is correctly downloaded and placed in the `docker-compose/wiki/` directory after the initial start.
