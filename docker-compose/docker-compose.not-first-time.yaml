@@ -1,0 +1,6 @@
+version: '3.8'
+
+services:
+  mediawiki:
+    volumes:
+      - ./mediawiki/LocalSettings.php:/var/www/html/LocalSettings.php:ro

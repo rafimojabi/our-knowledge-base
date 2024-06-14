@@ -1,0 +1,40 @@
+# MediaWiki with MariaDB
+#
+# Access via "http://localhost:8080"
+#   (or "http://$(docker-machine ip):8080" if using docker-machine)
+version: '3.8'
+services:
+  flarum:
+    image: shinsenter/flarum:latest-alpine
+    volumes:
+      - ./flarum:/var/www/html
+      #- flarum
+    ports:
+      - 5678:80
+  mediawiki:
+    image: mediawiki
+    restart: always
+    ports:
+      - 1234:80
+    links:
+      - database
+    volumes:
+      - images:/var/www/html/images
+      - mediawiki:/var/www/html
+  database:
+    image: mariadb
+    restart: always
+    command: mariadbd --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: '123456'
+    volumes:
+      #- db:/var/lib/mysql
+      - ./init/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - db:/var/lib/mysql
+
+volumes:
+  images:
+  db:
+  mediawiki:
+  myproject:
+    #flarum:
