@@ -92,3 +92,6 @@ For any issues or contributions, please refer to the [issues](https://github.com
 For more details and advanced configurations, refer to the official Docker and Docker Compose documentation.
 
 
+## Sources
+- https://hub.docker.com/_/mediawiki
+- https://hub.docker.com/r/shinsenter/flarum
