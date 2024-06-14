@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the path to the LocalSettings.php file
-CONFIG_FILE="./docker-compose/wiki/LocalSettings.php"
+CONFIG_FILE="./docker-compose/wikimedia/LocalSettings.php"
 
 # Function to start Docker Compose services
 start_services() {
