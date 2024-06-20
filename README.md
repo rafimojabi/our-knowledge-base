@@ -71,6 +71,16 @@ This command will stop all running Docker Compose services.
 - **docker-compose/wiki/**: After the initial setup, `LocalSettings.php` should be placed here.
 - **docker-compose/init/**: Contains SQL scripts to initialize databases required by the services.
 
+## Accessing to the Application
+The default domains set for the applications are as follows:
+- **mediawiki**: [http://wiki.live-in-europe.org](http://wiki.live-in-europe.org)
+- **flarum**: [http://flarum.live-in-europe.org](http://flarum.live-in-europe.org)
+
+These URLs are set for test purposes. In order to change the domains, Nginx config file at `nginx/conf/app.conf` should be updated correspondingly.
+
+### NOTE:
+ `docker compose restart webserver` is required after applying new configurations.
+ 
 ## Accessing the Applications
 
 - **MediaWiki**: Access the application at [http://127.0.0.1:1234](http://127.0.0.1:1234)
