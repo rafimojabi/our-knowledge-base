@@ -4,18 +4,32 @@
 #   (or "http://$(docker-machine ip):8080" if using docker-machine)
 version: '3.8'
 services:
+  webserver:
+    image: nginx:latest
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    volumes:
+      - ./nginx/conf/:/etc/nginx/conf.d/:ro
+      - ./certbot/www/:/var/www/certbot/:ro
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
   flarum:
     image: shinsenter/flarum:latest-alpine
     volumes:
       - ./flarum:/var/www/html
       #- flarum
-    ports:
-      - 5678:80
+      #ports:
+      #- 5678:80
   mediawiki:
     image: mediawiki
     restart: always
-    ports:
-      - 1234:80
+      #ports:
+      #- 1234:80
     links:
       - database
     volumes:
